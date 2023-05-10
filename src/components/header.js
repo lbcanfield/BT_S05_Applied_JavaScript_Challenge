@@ -1,16 +1,4 @@
 const Header = (title, date, temp) => {
-     const headerContainer = document.createElement('div').classList.add('header');
-     const dateElement = document.createElement('span').classList.add('date');
-     const titleElement = document.createElement('h1');
-     const tempElement = document.createElement('span').classList.add('temp');
-
-     headerContainer.appendChild(dateElement);
-     headerContainer.appendChild(titleElement);
-     headerContainer.appendChild(tempElement);
-
-     dateElement.textContent = date;
-     titleElement.textContent = title;
-     tempElement.textContent = temp;
      // TASK 1
      // ---------------------
      // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
@@ -23,6 +11,23 @@ const Header = (title, date, temp) => {
      //    <span class="temp">{ temp }</span>
      //  </div>
      //
+     const headerContainer = document.createElement('div')
+     const dateElement = document.createElement('span')
+     const titleElement = document.createElement('h1');
+     const tempElement = document.createElement('span')
+
+     headerContainer.classList.add('header');
+     dateElement.classList.add('date');
+     tempElement.classList.add('temp');
+
+     headerContainer.appendChild(dateElement);
+     headerContainer.appendChild(titleElement);
+     headerContainer.appendChild(tempElement);
+
+     dateElement.textContent = date;
+     titleElement.textContent = title;
+     tempElement.textContent = temp;
+
      return headerContainer;
 }
 
@@ -34,6 +39,8 @@ const headerAppender = (selector) => {
      // It should create a header using the Header component above, passing arguments of your choosing.
      // It should append the header to the element in the DOM that matches the given selector.
      //
+
+     document.querySelector(selector).appendChild(Header("Lambda Times", Date(), "100\u00B0"))
 
      // HINT: querySelector can take in a string (ie querySelector("#wrapper")) 
      // but it can also take in a variable (ie querySelector(selector))
